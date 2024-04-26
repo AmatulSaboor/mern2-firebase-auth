@@ -4,8 +4,6 @@ import {auth} from '../config/fb-config';
 import {createUserWithEmailAndPassword} from 'firebase/auth';
 
 let Register = () => {
-    const email2 = `amatulsaboor8@gmail.com`;
-    const password2 = `amatul8`;
     const [email, setEmail] = useState(``);
     const [password, setPassword] = useState(``);
     const [error, setError] = useState(``);
@@ -17,11 +15,11 @@ let Register = () => {
     }
     const register = async () => {
         // console.log(email)
-        await (console.log(email, password), createUserWithEmailAndPassword(auth, email2, password2))
+        await (console.log(email, password), createUserWithEmailAndPassword(auth, email, password))
         .then(user => {
             console.log(user.user)
             reset();
-            localStorage.setItem(`useremail`, email2)
+            localStorage.setItem(`useremail`, email)
             navigate("/dashboard");
             })
         .catch(error => 
