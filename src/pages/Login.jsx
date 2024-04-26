@@ -4,8 +4,6 @@ import { signInWithEmailAndPassword } from "firebase/auth";
 import { Link, useNavigate} from "react-router-dom"
 
 let Login = () => {
-    const email2 = `amatulsaboor8@gmail.com`;
-    const password2 = `amatul8`;
     let [email, setEmail] = useState('');
     let [password, setPassword] = useState('');
     const [error, setError] = useState(``);
@@ -13,10 +11,10 @@ let Login = () => {
     const useremail = localStorage.getItem(`useremail`);
     const login = async () => {
         console.log(email, password)
-        await signInWithEmailAndPassword(auth, email2 , password2)
+        await signInWithEmailAndPassword(auth, email , password)
         .then(user => {
             console.log(user.user)
-            localStorage.setItem(`useremail`, email2)
+            localStorage.setItem(`useremail`, email)
             navigate("/dashboard");
         })
         .catch(error => {
